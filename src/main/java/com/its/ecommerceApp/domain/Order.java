@@ -11,18 +11,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
-//asmaa join
-    @Column(name = "customer_id")
-	private Long customerId;
-	// asmaa M-M join
  
+ 
+    
+    
+	@ManyToOne
+	@JoinColumn(name = "customer_id", nullable = false)
+	private Customer customerId;
+	
 	/*
 	 * @ElementCollection 
 	 * private List<Long> productIds;
@@ -34,10 +37,7 @@ public class Order {
 		
 		@Column(name = "order_date")
 		private LocalDate orderDate;
-
-		/*
-		 * @Column(name = "status") private String status;
-		 */
+ 
  
 
 }

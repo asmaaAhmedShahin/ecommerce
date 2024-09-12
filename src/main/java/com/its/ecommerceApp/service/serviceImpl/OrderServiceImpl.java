@@ -1,11 +1,17 @@
 package com.its.ecommerceApp.service.serviceImpl;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.its.ecommerceApp.domain.Customer;
 import com.its.ecommerceApp.domain.Order;
+import com.its.ecommerceApp.model.CustomerModel;
 import com.its.ecommerceApp.model.OrderModel;
 import com.its.ecommerceApp.repository.OrderRepository;
 import com.its.ecommerceApp.service.OrderService;
@@ -18,8 +24,14 @@ public class OrderServiceImpl implements OrderService {
      @Override
 	    public Order createOrder(OrderModel orderModel) {
 	        Order order = new Order();
-	    //    order.setCustomerId(orderDto.getCustomerId());
-	    //    order.setProductIds(orderDto.getProductIds());
+	        Customer  customer  = new Customer();
+	        
+	        
+	        customer.setId(orderModel.getCustomerId());
+	         order.setCustomerId(customer);
+	         
+	         
+	       order.setOrderDate( LocalDate.now());
 	        order.setStatus(orderModel.getStatus());
 	        return orderRepository.save(order);
 	    }

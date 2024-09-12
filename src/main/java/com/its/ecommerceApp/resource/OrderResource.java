@@ -17,7 +17,7 @@ import com.its.ecommerceApp.model.OrderModel;
 import com.its.ecommerceApp.service.OrderService;
 
 @RestController
-@RequestMapping("/api/orders")
+@RequestMapping("api/orders")
 public class OrderResource {
 
     @Autowired
@@ -33,7 +33,7 @@ public class OrderResource {
     public Page<Order> getOrders(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id,asc") String sort) {
+            @RequestParam(defaultValue = "id,desc") String sort) {
         Sort sortOrder = Sort.by(Sort.Order.by(sort.split(",")[0]).
         		with(Sort.Direction.fromString(sort.split(",")[1])));
         

@@ -3,6 +3,7 @@ package com.its.ecommerceApp.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.its.ecommerceApp.domain.Customer;
 import com.its.ecommerceApp.utils.OrderStatus;
 
 import lombok.AllArgsConstructor;
@@ -18,10 +19,17 @@ public class OrderModel {
 
 	private Long customerId;
 	
-	private List<Long> productIds;
+	//private List<Long> productIds;
 
 	private OrderStatus status;
 
 	private LocalDate orderDate;
-
+	
+	/*
+	{
+	    "customerId": 2,
+	    "orderDate": "2024-09-12T15:30:00",
+	    "status": "PENDING" 
+	}
+*/
 }

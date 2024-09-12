@@ -1,3 +1,4 @@
+
 package com.its.ecommerceApp.domain;
 
 import java.time.LocalDate;
