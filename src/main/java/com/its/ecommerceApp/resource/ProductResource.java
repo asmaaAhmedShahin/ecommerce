@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.its.ecommerceApp.domain.Product;
+import com.its.ecommerceApp.model.ProductModel;
 import com.its.ecommerceApp.service.ProductService;
 
-@RestController
+	@RestController
 	@RequestMapping("/api/products")
 	public class ProductResource {
 
@@ -38,5 +39,11 @@ import com.its.ecommerceApp.service.ProductService;
 	                @RequestParam(defaultValue = "v1") String version) {
 	            return productService.getProductsByMerchant(merchantId, category, page, size, version);
 	        }
-
+			
+//			  @GetMapping("{id}")
+//			  public ProductModel getProductById(@PathVariable Long id)
+//			  {
+//				  return productService.getProductById(id);
+//			  }
+			 
 }

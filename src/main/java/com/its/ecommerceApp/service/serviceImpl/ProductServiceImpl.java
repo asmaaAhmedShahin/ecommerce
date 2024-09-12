@@ -1,26 +1,54 @@
 package com.its.ecommerceApp.service.serviceImpl;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.its.ecommerceApp.domain.Category;
+import com.its.ecommerceApp.domain.Merchant;
 import com.its.ecommerceApp.domain.Product;
+import com.its.ecommerceApp.repository.CategoryRepository;
+import com.its.ecommerceApp.repository.MerchantRepository;
 import com.its.ecommerceApp.repository.ProductRepository;
 import com.its.ecommerceApp.service.ProductService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 @Service
 public class ProductServiceImpl  implements ProductService {
-	
-	
-	 
 
+	/*
+	   private final  ProductMapper productMapper  = ProductMapper.INSTANCE;
+	 		@Autowired
+		private ProductRepository productRepository;
+	    
 	    @Autowired
-	    private ProductRepository productRepository;
+	    public ProductServiceImpl(ProductRepository productRepository) {
+	        this.productRepository = productRepository;
+	     
+	    }
+	    */
+	
+	//   private final ProductMapper productMapper;
+	@Autowired
+	    private   ProductRepository productRepository;
+	
+	@Autowired
+	private MerchantRepository merchantRepository;
+	
+	@Autowired
+	private 	CategoryRepository categoryRepository;
+	
+
+//	    @Autowired
+//	    public ProductServiceImpl(ProductMapper productMapper, ProductRepository productRepository) {
+//	        this.productMapper = productMapper;
+//	        this.productRepository = productRepository;
+//	    }
+	    
 
 	    public List<Product> searchProducts(String name, String sku) {
 
@@ -39,13 +67,29 @@ public class ProductServiceImpl  implements ProductService {
 	    
 	    
 	    
-	    public Page<Product> getProductsByMerchant(Long merchantId, String category, int page, int size, String version) {
+	    public Page<Product> getProductsByMerchant(Long merchantId, String categoryId, int page, int size, String version) {
 	    	
 	        Pageable pageable = PageRequest.of(page, size);
-	        
-	        return productRepository.findByMerchantIdAndCategoryId(merchantId, Long.parseLong(category), pageable);
+	        Merchant merchant = merchantRepository.findById(merchantId).orElseThrow(() -> new IllegalArgumentException("Merchant not found"));
+	        Category category = categoryRepository.findById(Long.parseLong(categoryId)).orElseThrow(() -> new IllegalArgumentException("Category not found"));
+
+	        return productRepository.findByMerchantIdAndCategoryId(merchant, category, pageable);
 	    }
 
-	    
-	    
+//		public ProductModel getProductById(Long id) {
+//
+//			Product Product = productRepository.findById(id).get();
+//
+//			return convertToDTO(Product);
+//
+//		}
+//	    
+//	    
+//	    public ProductModel convertToDTO(Product product) {
+//            return productMapper.productToproductModel(product);
+//        }
+//
+//        public Product convertToEntity(ProductModel productModel) {
+//            return productMapper.productModelToProduct(productModel);
+//        }
 }

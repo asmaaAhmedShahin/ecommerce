@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.its.ecommerceApp.domain.Category;
+import com.its.ecommerceApp.domain.Merchant;
 import com.its.ecommerceApp.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	Product findBySku(String sku);
 	
-    Page<Product> findByMerchantIdAndCategoryId(Long merchantId, Long categoryId, Pageable pageable);
+    Page<Product> findByMerchantIdAndCategoryId(Merchant merchantId, Category categoryId, Pageable pageable);
 
 
 }
