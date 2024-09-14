@@ -18,26 +18,19 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
- 
- 
-    
-    
+
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Customer customerId;
-	
+
 	/*
-	 * @ElementCollection 
-	 * private List<Long> productIds;
+	 * @ElementCollection private List<Long> productIds;
 	 */
-    
-	 @Enumerated(EnumType.STRING)
-	 private OrderStatus status;
-	 
-		
-		@Column(name = "order_date")
-		private LocalDate orderDate;
- 
- 
+
+	@Enumerated(EnumType.STRING)
+	private OrderStatus status;
+
+	@Column(name = "order_date")
+	private LocalDate orderDate;
 
 }

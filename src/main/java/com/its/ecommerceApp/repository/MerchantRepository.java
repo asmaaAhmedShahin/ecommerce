@@ -6,7 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.its.ecommerceApp.domain.Merchant;
 
 @Repository
-	public interface MerchantRepository extends JpaRepository<Merchant, Long> {
-	}
-
- 
+public interface MerchantRepository extends JpaRepository<Merchant, Long> {
+}

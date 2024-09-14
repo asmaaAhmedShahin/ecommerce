@@ -18,18 +18,14 @@ public class OrderModel {
 	private Long id;
 
 	private Long customerId;
-	
-	//private List<Long> productIds;
+
+	// private List<Long> productIds;
 
 	private OrderStatus status;
 
 	private LocalDate orderDate;
-	
+
 	/*
-	{
-	    "customerId": 2,
-	    "orderDate": "2024-09-12T15:30:00",
-	    "status": "PENDING" 
-	}
-*/
+	 * { "customerId": 2, "orderDate": "2024-09-12T15:30:00", "status": "PENDING" }
+	 */
 }

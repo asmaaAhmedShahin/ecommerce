@@ -14,22 +14,15 @@ import com.its.ecommerceApp.service.CategoryService;
 @RequestMapping("/api/categories")
 public class CategoryResouce {
 
-	
-	
-	
-	
-	 
-	  @Autowired 
-	  private CategoryService categoryService;
-	
-	  
-	    @GetMapping
-	    public  List<Category> getAllCategories() {
- 	        	   List<Category> cat=	 categoryService.getAllCategories();
-	        	   
- 
-	 return   cat; 
-	 
-	    }
-	    
+	@Autowired
+	private CategoryService categoryService;
+
+	@GetMapping
+	public List<Category> getAllCategories() {
+		List<Category> cat = categoryService.getAllCategories();
+
+		return cat;
+
+	}
+
 }

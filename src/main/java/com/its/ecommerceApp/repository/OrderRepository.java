@@ -5,10 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.its.ecommerceApp.domain.Order;
 
- 
-
-	
-	@Repository
-	public interface OrderRepository extends JpaRepository<Order, Long> {
-	}
- 
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+}

@@ -20,25 +20,20 @@ import com.its.ecommerceApp.service.OrderService;
 @RequestMapping("api/orders")
 public class OrderResource {
 
-    @Autowired
-    private OrderService orderService;
+	@Autowired
+	private OrderService orderService;
 
-    @PostMapping
-    public Order createOrder(@RequestBody OrderModel orderModel) {
-        return orderService.createOrder(orderModel);
-    }
-    
-    
-    @GetMapping
-    public Page<Order> getOrders(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size,
-            @RequestParam(defaultValue = "id,desc") String sort) {
-        Sort sortOrder = Sort.by(Sort.Order.by(sort.split(",")[0]).
-        		with(Sort.Direction.fromString(sort.split(",")[1])));
-        
-  
-        Pageable pageable = PageRequest.of(page, size, sortOrder);
-        return orderService.getOrders(pageable);
-    }
+	@PostMapping
+	public Order createOrder(@RequestBody OrderModel orderModel) {
+		return orderService.createOrder(orderModel);
+	}
+
+	@GetMapping
+	public Page<Order> getOrders(@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size, @RequestParam(defaultValue = "id,desc") String sort) {
+		Sort sortOrder = Sort.by(Sort.Order.by(sort.split(",")[0]).with(Sort.Direction.fromString(sort.split(",")[1])));
+
+		Pageable pageable = PageRequest.of(page, size, sortOrder);
+		return orderService.getOrders(pageable);
+	}
 }
