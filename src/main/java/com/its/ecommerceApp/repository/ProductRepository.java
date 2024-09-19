@@ -20,6 +20,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	Page<Product> findByMerchantIdAndCategoryId(Merchant merchantId, Category categoryId, Pageable pageable);
 
-	List<Product> findByNameContainingOrSkuDescContaining(String name, String sku);
+	//List<Product> findByNameContainingOrSkuDescContaining(String name, String sku);
 
 }
