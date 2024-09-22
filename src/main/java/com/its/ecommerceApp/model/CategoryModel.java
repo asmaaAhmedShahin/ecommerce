@@ -9,17 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerModel {
+public class CategoryModel {
 
 	private Long id;
 
 	private String name;
 
-	private String email;
-
-	private String address;
-
-	private String phoneNumber;
-
 	private LocalDate createdDate;
 }
+ 
+

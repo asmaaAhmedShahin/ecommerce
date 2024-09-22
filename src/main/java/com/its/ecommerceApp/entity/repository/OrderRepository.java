@@ -1,9 +1,9 @@
-package com.its.ecommerceApp.repository;
+package com.its.ecommerceApp.entity.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.its.ecommerceApp.domain.Order;
+import com.its.ecommerceApp.entity.Order;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {

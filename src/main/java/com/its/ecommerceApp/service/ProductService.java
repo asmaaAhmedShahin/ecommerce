@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import com.its.ecommerceApp.domain.Product;
+import com.its.ecommerceApp.entity.Product;
 import com.its.ecommerceApp.model.ProductModel;
 
 public interface ProductService {

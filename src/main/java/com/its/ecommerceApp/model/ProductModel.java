@@ -3,8 +3,8 @@ package com.its.ecommerceApp.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import com.its.ecommerceApp.domain.Category;
-import com.its.ecommerceApp.domain.Merchant;
+import com.its.ecommerceApp.entity.Category;
+import com.its.ecommerceApp.entity.Merchant;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

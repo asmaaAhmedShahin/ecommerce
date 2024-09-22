@@ -12,16 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.its.ecommerceApp.domain.Product;
+import com.its.ecommerceApp.entity.Product;
 import com.its.ecommerceApp.model.ProductModel;
 import com.its.ecommerceApp.service.ProductService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/api/products")
+ 
+@RequiredArgsConstructor
 public class ProductResource {
 
-	@Autowired
-	private ProductService productService;
+	  private final  ProductService productService;
 
 	@GetMapping("/search")
 	public List<Product> searchProducts(@RequestParam(required = false) String name,

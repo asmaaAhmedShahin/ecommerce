@@ -1,4 +1,4 @@
-package com.its.ecommerceApp.domain;
+package com.its.ecommerceApp.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

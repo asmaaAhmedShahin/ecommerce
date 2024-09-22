@@ -1,5 +1,5 @@
 
-package com.its.ecommerceApp.domain;
+package com.its.ecommerceApp.entity;
 
 import java.time.LocalDate;
 

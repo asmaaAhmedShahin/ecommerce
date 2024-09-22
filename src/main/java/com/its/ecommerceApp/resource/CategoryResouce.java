@@ -7,21 +7,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.its.ecommerceApp.domain.Category;
+import com.its.ecommerceApp.model.CategoryModel;
 import com.its.ecommerceApp.service.CategoryService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/categories")
+@RequiredArgsConstructor
 public class CategoryResouce {
 
-	@Autowired
-	private CategoryService categoryService;
+	 
+	private final CategoryService categoryService;
 
 	@GetMapping
-	public List<Category> getAllCategories() {
-		List<Category> cat = categoryService.getAllCategories();
+	public List<CategoryModel> getAllCategories() {
+	 
 
-		return cat;
+		return categoryService.getAllCategories();
 
 	}
 

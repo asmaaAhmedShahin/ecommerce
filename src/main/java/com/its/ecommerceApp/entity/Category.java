@@ -1,4 +1,4 @@
-package com.its.ecommerceApp.domain;
+package com.its.ecommerceApp.entity;
 
 import java.time.LocalDate;
 
@@ -8,19 +8,17 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "merchant")
-public class Merchant {
+@Table(name = "category")
+public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", nullable = false)
 	private Long id;
+
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "contact_info", nullable = false)
-	private String contacInfo;
-
-	@Column(name = "created_date")
+	@Column(name = "created_date", nullable = false)
 	private LocalDate createdDate;
 }
